@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(etl_14sanity_tests)
+project(etl_20_syntax_check)
 
 add_definitions(-DETL_DEBUG)
 
 option(NO_STL "No STL" OFF)
+
+message(STATUS "Compiling for C++20")
 
 if (NO_STL)
 	message(STATUS "Compiling for No STL")
@@ -23,20 +25,20 @@ if (ETL_USER_DEFINED_TYPE_TRAITS)
 endif()
 
 if (ETL_FORCE_TEST_CPP03_IMPLEMENTATION)
-	message(STATUS "Compiling for C++03 tests")
+	message(STATUS "Force C++03 implementations")
 	add_definitions(-DETL_FORCE_TEST_CPP03_IMPLEMENTATION)
 endif()
 
-add_library(t14 OBJECT)
-target_compile_definitions(t14 PRIVATE __STDC_LIMIT_MACROS __STDC_CONSTANT_MACROS __STDC_FORMAT_MACROS)
-target_include_directories(t14 PRIVATE "")
-target_include_directories(t14 SYSTEM PRIVATE ../../../include)
-set_target_properties(t14 PROPERTIES
-        CXX_STANDARD 14
+add_library(t20 OBJECT)
+target_compile_definitions(t20 PRIVATE __STDC_LIMIT_MACROS __STDC_CONSTANT_MACROS __STDC_FORMAT_MACROS)
+target_include_directories(t20 PRIVATE "")
+target_include_directories(t20 SYSTEM PRIVATE ../../../include)
+set_target_properties(t20 PROPERTIES
+        CXX_STANDARD 20
         CXX_STANDARD_REQUIRED ON
         CXX_EXTENSIONS ON
         )
-target_sources(t14 PRIVATE etl_profile.h
+target_sources(t20 PRIVATE etl_profile.h
         ../absolute.h.t.cpp
         ../algorithm.h.t.cpp
         ../alignment.h.t.cpp
@@ -88,6 +90,7 @@ target_sources(t14 PRIVATE etl_profile.h
         ../crc16_en13757.h.t.cpp
         ../crc16_genibus.h.t.cpp
         ../crc16_kermit.h.t.cpp
+        ../crc16_m17.h.t.cpp
         ../crc16_maxim.h.t.cpp
         ../crc16_mcrf4xx.h.t.cpp
         ../crc16_modbus.h.t.cpp
@@ -129,6 +132,7 @@ target_sources(t14 PRIVATE etl_profile.h
         ../enum_type.h.t.cpp
         ../error_handler.h.t.cpp
         ../exception.h.t.cpp
+        ../expected.h.t.cpp
         ../factorial.h.t.cpp
         ../fibonacci.h.t.cpp
         ../file_error_numbers.h.t.cpp

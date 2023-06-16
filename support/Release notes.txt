@@ -1,4 +1,91 @@
 ===============================================================================
+20.36.1
+#700 Compilation error for [] map operator. Fixed map const placement new issue.
+Re-enabled memcast tests.
+
+===============================================================================
+20.36.0
+#663 Make unit tests compile for C++20
+#675 Compilation error in optional.h
+#684 Added sanitization fix for MinGW
+#687 Build failure. constexpr keyword before template keyword 
+#689 Add as_bytes and as_writable_bytes
+#690 Add rvalue accessors to expected and optional and update constructors
+#692 operator [] for flat_map always calls default constructor for mapped_type
+#695 Visiting a const variant (variadic)
+#698 Behaviour of bidirectional_link nodes. Links are now cleared when unlinked
+#699 Optional(POD) operator bool explicit
+Optimised map/flat_map/unordered_map [] operator and insert()
+Removed [] operator for reference_flat_map
+Unit tests compile for C++11
+Fixed C++11 constexpr compatibility
+Removed redundant 'const' in template parameters
+Updated CI scripts to enable C++ standard and optimisation selection
+Updated static constant definitions
+Fixed incorrect return types for reverse iterator begin() & end()
+Updated C++ standard conditional compilation for reverse iterator functions
+Fixed latest Address Sanitizer issues
+Message packet unused parameter fix
+Added ETL_OR_STD17 macro as the namespace for size()
+Added Tasking compiler
+Fix type traits generator
+Fix test array sizes
+Changed some ETL_ASSERT macros to ETL_ASSERT_OR_RETURN
+Updated CMake files to allow C++ standard selection
+Replaced ETL_ASSERT_AND_RETURN with ETL_ASSERT_OR_RETURN
+Changed native char8_t check
+Renamed Github vs2022.yml to visual-studio.yml
+Updated Unittest++ checks
+Comments and noexcept updates to placement new
+etl::variant (variadic) refactor and updates for C++ standards compatibility
+etl::overload available in C++17 only
+map/flat_map speed optimisations
+Various C++03 compatibilty updates for maps
+Refactored Bash compilation scripts to allow selection of C++ standard and optimisation level
+Renamed Bash compilation scripts. Changed 'sanity checks' to 'syntax checks
+Some internal constant case changes from all upper to capital case
+
+===============================================================================
+20.35.15
+#627 Make tests build with C++14
+#663 Make unit tests compile for C++20
+#675 Compilation error in optional.h line 405
+
+===============================================================================
+20.35.14
+Convert the Visual Studio project to VS2022
+
+===============================================================================
+20.35.13
+#649 Fixed the false positive 'array-bounds' errors for ETL unit tests.
+#652 Fixed false positives 'maybe-uninitialized' errors for ETL unit tests.
+Moved virtual functions in etl::fixed_sized_memory_block_allocator from 'private' to 'protected'. 
+
+===============================================================================
+20.35.12
+#615 Addition of etl::expected
+#649 Changed intrusive_list and intrusive_forward_list iterator constructor parameter from reference to pointer.
+#667 etl::span copy constructor with original span with fixed extent causes pend iterator to be invalid
+#668 byte_stream changes that add error exceptions have changed previous behaviour
+#670 span equality operators
+#672 HFSM-specific start() and reset()
+Fixed span templated copy constructor
+Added destination_router_id parameter overrides to receive() virtual functions
+Added ""_sv string view operators
+Added M17 CRC
+Added repair() to etl::circular_buffer
+Added etl::contruct_object_at, etl::get_object_at and etl::destroy_object_at
+Added etl::is_aligned, etl::alignment_exception and etl::alignment_error
+Removed unnecessary code in etl::vector_ext::repair()
+Updated sanity check make files
+C++03 compatibility improvements
+
+===============================================================================
+20.35.11
+Added emplace by index to variant (variadic)
+#660 byte_stream_reader::skip error
+
+===============================================================================
 20.35.10
 #659 emplace member functions return reference to emplaced value
 
